@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  hobbies = ['tennis', 'swimming', 'golf'];
+  newHobby = '';
+
+  addHobby(newHobby) {
+  	if (newHobby != '') {
+  		this.hobbies.push(newHobby);
+  	}
+  }
+
+  removeHobby(i) {
+  	console.log(i);
+  	this.hobbies.splice(i, 1);
+  }
 }
