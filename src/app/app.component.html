@@ -1,10 +1,12 @@
 <h1>Angular Problem</h1>
-
+<p *ngIf="hobbyDel">Hobby was deleted!</p>
+<p [ngClass]="{moreThan: hobbies.length > 3}" class="counter">Hobbies: {{hobbies.length}}</p>
 <ul>
-  <li 
+  <app-hobby
     *ngFor="let hobby of hobbies;let i = index"
-    (click)="removeHobby(i)">{{hobby}}</li>
+    [hobbyName]="hobby"
+    (hobbyRemoved)="onHobbyRemoved($event)"></app-hobby>
 </ul>
 <input type="text" [(ngModel)]="newHobby">
-<button (click)="addHobby(newHobby)">Add hobby</button>
+<button (click)="addHobby()">Add hobby</button>
 <p>{{newHobby}}</p>
